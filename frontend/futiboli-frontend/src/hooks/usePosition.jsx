@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useCallback} from 'react'
 export default function usePosition(ref){
   const [prevElement, setPrevElement] = useState(null)
   const [nextElement, setNextElement] = useState(null)
@@ -18,6 +18,31 @@ export default function usePosition(ref){
       return null
     } 
   }
+  const scrollToElement = useCallback(
+    (element) => {
+      const currentNode = ref.current
+
+      if (!currentNode || !element){
+        return
+      }else{
+        let newScrollPosition
+
+        newScrollPosition = element.offsetLeft + element.getBoundingClientRect().width / 2 - currentNode.getBoundingClientRect().width / 2
+
+        currentNode.scroll({ left: newScrollPosition, behavior: 'smooth' })
+      }
+
+    }, [ref]
+  )
+
+  const scrollRight = useCallback(()=> scrollToElement(nextElement), [
+    scrollToElement,
+    nextElement
+  ])
+  const scrollLeft = useCallback(()=> scrollToElement(prevElement), [
+    scrollToElement,
+    prevElement
+  ])
 
   useEffect(() => {
     const element = ref.current
@@ -43,6 +68,8 @@ export default function usePosition(ref){
   return {
     hasItemOnLeft: prevElement !== null,
     hasItemOnRight: nextElement !== null,
+    scrollLeft: scrollLeft,
+    scrollRight: scrollRight
   }
 }
 
