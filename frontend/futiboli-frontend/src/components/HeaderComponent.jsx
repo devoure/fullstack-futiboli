@@ -1,5 +1,6 @@
 import React, {} from 'react'
 import '../index.css'
+import 'https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js';
 
 function HeaderComponent(){
   const [navBarMode, setNavBarMode] = React.useState(false)
@@ -8,8 +9,28 @@ function HeaderComponent(){
       return(!prev)
     })
   }
+
+  const scrollTracker = React.useRef()
+  const scrollTrackingTimeline = new ScrollTimeline({
+    //source: element,
+    //orientation: "block",
+    scrollOffsets: [CSS.percent(0), CSS.percent(100)]
+  })
+  React.useEffect(()=>{
+    const element = scrollTracker.current
+    element.animate({
+    transform: ["scaleX(0)", "scaleX(1)"]
+  },
+    {
+      duration:1,
+      timeline:scrollTrackingTimeline,
+    }
+    )
+
+  }, [scrollTracker])
   return (
     <div className={navBarMode ? "blog-header" : "blog-header blog-header-off"}>
+    <div className="scroll-tracker" ref={scrollTracker}></div>
     <div className="blog-header-nav">
       <span>futiboli.</span>
       <div className="toggle-nav-list" onClick={toggleNavList}>
