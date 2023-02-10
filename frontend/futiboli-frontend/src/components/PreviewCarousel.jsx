@@ -24,14 +24,35 @@ function PreviewCarousel(){
         return rect.left <= childRect.left && rect.right >= childRect.right
       })
       if (visibleElements.length == 3){
-        const timeline = gsap.timeline({defaults:{duration:1}})
+        const timeline = gsap.timeline({defaults:{duration:2}})
         timeline
           .fromTo(visibleElements[0], {opacity: 0}, {opacity:1}, 0)
-          .fromTo(visibleElements[0],{x:"-10vw"}, {x:"0", ease:"bounce", duration: .5}, 0)
+          .fromTo(visibleElements[0],{x:"-10vw"}, {x:"0", ease:"bounce", duration: 2}, 0)
           .fromTo(visibleElements[2], {opacity: 0}, {opacity:1}, 0)
-          .fromTo(visibleElements[2],{x:"10vw"}, {x:"0", ease:"bounce", duration: .5}, 0)
+          .fromTo(visibleElements[2],{x:"10vw"}, {x:"0", ease:"bounce", duration: 2}, 0)
           .fromTo(visibleElements[1], {opacity: 0}, {opacity:1}, 0)
+      }else if (visibleElements.length == 4){
+        const timeline = gsap.timeline({defaults:{duration:2}})
+        timeline
+          .fromTo(visibleElements[0], {opacity: 0}, {opacity:1}, 0)
+          .fromTo(visibleElements[0],{x:"-10vw"}, {x:"0", ease:"bounce", duration: 2}, 0)
+          .fromTo(visibleElements[3], {opacity: 0}, {opacity:1}, 0)
+          .fromTo(visibleElements[3],{x:"10vw"}, {x:"0", ease:"bounce", duration: 2}, 0)
+          .fromTo(visibleElements[1], {opacity: 0}, {opacity:1}, 0)
+          .fromTo(visibleElements[2], {opacity: 0}, {opacity:1}, 0)
+      }else if (visibleElements.length == 2){
+        const timeline = gsap.timeline({defaults:{duration:2}})
+        timeline
+          .fromTo(visibleElements[0], {opacity: 0}, {opacity:1}, 0)
+          .fromTo(visibleElements[0],{x:"-10vw"}, {x:"0", ease:"bounce", duration: 2}, 0)
+          .fromTo(visibleElements[1], {opacity: 0}, {opacity:1}, 0)
+          .fromTo(visibleElements[1],{x:"10vw"}, {x:"0", ease:"bounce", duration: 2}, 0)
+      }else if (visibleElements.length == 1){
+        const timeline = gsap.timeline({defaults:{duration:2}})
+        timeline
+          .fromTo(visibleElements[0], {opacity: 0}, {opacity:1}, 0)
       }
+
 //      else if (visibleElements.length == 2){
 //        const timeline = gsap.timeline({defaults:{duration:.5}})
 //        timeline
