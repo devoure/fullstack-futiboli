@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Lexend:wght@100;200;300;400;500;600;700&display=swap');
+
 *, *::before, *::after{
   padding: 0;
   margin: 0;
@@ -36,6 +37,14 @@ body, html{
 }
 
 /* ------------- Blog Header Component ----------------- */
+.scroll-tracker{
+  position:fixed;
+  height:0.5rem;
+  inset:0 0 auto;
+  background:var(--sky);
+  z-index:1000;
+  transform-origin:left;
+}
 .more{
   height:80vh;
   background-color:black;
