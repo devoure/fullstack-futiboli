@@ -6,6 +6,7 @@ import BlogNewsComponent from '../components/BlogNewsComponent.jsx'
 import HeaderComponent from '../components/HeaderComponent.jsx'
 import LandingCarousel from '../components/LandingCarousel.jsx'
 import PreviewCarousel from '../components/PreviewCarousel.jsx'
+import ContentComponent from '../components/ContentComponent.jsx'
 import '../index.css'
 
 function MainPage(){
@@ -14,6 +15,7 @@ function MainPage(){
       <HeaderComponent />
       <LandingCarousel />
       <PreviewCarousel />
+      <ContentComponent />
     </div>
   )
 }

@@ -489,6 +489,56 @@ body, html{
 
 /* ---------- End Card Carousel Preview --------------- */
 
+/* ----------------- Blog Content --------------------- */
+.content-blog-container{
+  width: 100%; 
+  height: 400%;
+  background-color:black;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.content-blog{
+  width: 80%;
+  height: 95%;
+  background-color:white;
+  display:flex;
+}
+.content-blog-articles{
+  width: 65%;
+  height:100%;
+  background-color:yellow;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.content-blog-groups{
+  width:35%;
+  height:100%;
+}
+.blog-article{
+  width:95%;
+  height:30%;
+  background-color:black;
+}
+.blog-article-image{
+  width:100%;
+  height:60%;
+  background-color:white;
+}
+.blog-article-heading{
+  width:100%;
+  height:15%;
+  background-color:green;
+}
+.blog-article-body{
+  width:100%;
+  height:15%;
+  background-color:white;
+}
+
+/* ------------ End Blog Content  --------------------- */
+
 /* ----------------  Media Queries ------------------ */
  /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {}
